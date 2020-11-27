@@ -1,25 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '@/assets/App.css';
+import {HashRouter, Route} from 'react-router-dom'
+/** ========redux======== **/
+import {Provider} from 'react-redux'
+import store from '@/redux/index'
+import '@/assets/styles/base.less'
+/** ========utils======== **/
+import LazyLoad from '@/utils/lazyload'
+/** ========Components======== **/
+const Index = LazyLoad( () => import('@/views/index/index'))
+const Task = LazyLoad( () => import('@/views/task/task'))
+const Turntable = LazyLoad( () => import('@/views/example/turntable'))
+const Toast = LazyLoad( () => import('@/views/example/toast'))
+const ReduxConnect = LazyLoad( () => import('@/views/example/reduxConnect'))
+const ForwardRef = LazyLoad( () => import('@/views/example/forwardRef'))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <HashRouter>
+        <Route path='/' exact component={Index} />
+        <Route path='/task/:id' exact component={Task} />
+        <Route path='/turntable' exact component={Turntable} />
+        <Route path='/toast' exact component={Toast} />
+        <Route path='/forwardRef' exact component={ForwardRef} />
+        <Route path='/reduxConnect' exact component={ReduxConnect} />
+      </HashRouter>
+    </Provider>
   );
 }
 

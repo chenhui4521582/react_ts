@@ -1,26 +1,34 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5",//用于指定生成代码的兼容版本，可以从es3,es5,es2015,es6中选择一个，如果不设置，默认生产的代码兼容到es3。
     "lib": [
       "dom",
-      "dom.iterable",
-      "esnext"
+      "es5",
+      "es2015"
     ],
-    "allowJs": true,
+    "allowJs": true, //当设置为true时，js文件也会被编译。
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true, //设置为true时，则允许从没有默认导出的模块中默认导入(也就是不做检查)。
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "forceConsistentCasingInFileNames": true, //设置为true时，将强制区分大小写。默认为false。
+    "noFallthroughCasesInSwitch": true, //设置为true时，将严格校验switch-case语法。
+    "module": "commonjs",  //用于指定模块的代码生成规则，可以使用 commonjs 、 amd 、 umd 、 system 、 es6 、 es2015 、 none 这些选项
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false, //设置为true时，无条件的触发导入未解决的文件
     "noEmit": true,
-    "jsx": "react"
+    "noImplicitAny": true, //当表达式和申明 类型为any时，是否需要发出警告，设置true，则不警告
+    "jsx": "react", //用于指定按照何种方式生成jsx代码，可选react和preserve
+    "allowUnusedLabels": true, // 设置为true时，允许没有用到的标签
+    "baseUrl": ".",
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
-    "src"
+    "src",
+    "typed-css.d.ts"
   ]
 }
