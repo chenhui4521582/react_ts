@@ -17,7 +17,9 @@ const Index = (props: any) => {
       {name: 'turntable', url: '/turntable'},
       {name: 'toast', url: '/toast'},
       {name: 'forwardRef', url: '/forwardRef'},
-      {name: 'reduxConnect', url: '/reduxConnect'}
+      {name: 'reduxConnect', url: '/reduxConnect'},
+      {name: 'propsRender', url: '/propsRender'},
+      {name: 'Hook', url: '/hook'},
     ])
   }, [])
   return (

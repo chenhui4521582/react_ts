@@ -18,7 +18,7 @@ class Toast extends Component<any, i_state> {
       show: false
     }
   }
-  public transitionTime: any = 1500;
+  public transitionTime: any = 100;
   public timer: any = null;
   addNotice (params: any) {
     if(this.state.show) return;
@@ -31,12 +31,12 @@ class Toast extends Component<any, i_state> {
     }, duration || this.transitionTime)
   }
   render () {
-    const {content} = this.state.notice;
+    const {content, duration} = this.state.notice;
     const {show} = this.state;
     return (
       <CSSTransition
         in={show}
-        timeout={this.transitionTime} 
+        timeout={duration ||this.transitionTime} 
         classNames="notice"
         unmountOnExit={true}
       >

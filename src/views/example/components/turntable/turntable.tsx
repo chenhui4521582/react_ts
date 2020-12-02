@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react"
+import React, {useEffect, useRef, createRef} from "react"
 /** ========Hook======== **/
 import { useTurnTableAward } from '@/services/turntable'
 import style from './style.module.less'
@@ -11,7 +11,7 @@ interface I_turntableParams {
 const Turntable = (props: any) => {
   let defaultParams: I_turntableParams = {index: 0, provA: 0, oneA: 0, lock: false};
   const [turntableAward] = useTurnTableAward();
-  const list_item: any = useRef();
+  const list_item: any = createRef();
   useEffect(() => {
     setItemAngle()
   })
@@ -29,7 +29,6 @@ const Turntable = (props: any) => {
 
   /** 转动转动转动转动转动转动转动转动 **/
   const run = (index: Number, callback?: any): void =>  {
-    console.log(defaultParams)
     if(defaultParams.lock) return;
     defaultParams.lock = true
     /** 默认旋转角度 **/
@@ -66,7 +65,7 @@ const Turntable = (props: any) => {
       <div className={style['turntable-wrap']} ref={list_item}>
         {
           turntableAward?.map((item, index) => (
-            <div className={style['list-item']} key={index} >
+            <div className={style['list-item']} key={index}>
               {item.awardsName}
             </div>
           ))

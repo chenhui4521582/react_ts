@@ -11,7 +11,6 @@ const BaseHeader = (props: any) => {
 		if(urlArr.includes(pathName)){
 			setBackShow(false);
 		}
-		console.log(props)
 	}, [])
 	const back = () => {
 		window.history.back()

@@ -14,6 +14,8 @@ const Turntable = LazyLoad( () => import('@/views/example/turntable'))
 const Toast = LazyLoad( () => import('@/views/example/toast'))
 const ReduxConnect = LazyLoad( () => import('@/views/example/reduxConnect'))
 const ForwardRef = LazyLoad( () => import('@/views/example/forwardRef'))
+const PropsRender = LazyLoad( () => import('@/views/example/propsRender'))
+const Hook = LazyLoad( () => import('@/views/example/Hook'))
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path='/toast' exact component={Toast} />
         <Route path='/forwardRef' exact component={ForwardRef} />
         <Route path='/reduxConnect' exact component={ReduxConnect} />
+        <Route path='/propsRender' exact component={PropsRender} />
+        <Route path='/hook' exact component={Hook} />
       </HashRouter>
     </Provider>
   );
